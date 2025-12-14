@@ -32,7 +32,7 @@ const NewsAnalysisView: React.FC<NewsAnalysisViewProps> = ({ onNavigate }) => {
     setAnalyzingId(id);
     const item = news.find(n => n.id === id);
     if (item) {
-      const analysis = await analyzeNewsImpact(item);
+    const analysis = await analyzeNewsImpact(item.title + ". " + item.summary);
       setNews(prev => prev.map(n => n.id === id ? { ...n, impactAnalysis: analysis } : n));
     }
     setAnalyzingId(null);
