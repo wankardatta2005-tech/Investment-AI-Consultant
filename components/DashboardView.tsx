@@ -38,7 +38,7 @@ const DashboardView: React.FC<DashboardViewProps> = ({ settings, onNavigate, onU
   useEffect(() => {
     let mounted = true;
     const fetchStrategy = async () => {
-      const strategy = await generateMarketStrategy(settings.watchlist);
+const strategy = await generateMarketStrategy(settings.watchlist.join(', '));
       if (mounted) {
         setAiStrategy(strategy);
       }
